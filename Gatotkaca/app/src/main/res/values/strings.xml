@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gatotkaca</string>
+    <string name="api_error">Error</string>
+    <string name="news_image">Image</string>
+    <string name="news_title">Title</string>
+    <string name="news_description">Description</string>
+    <string name="news_search">Search</string>
+</resources>
