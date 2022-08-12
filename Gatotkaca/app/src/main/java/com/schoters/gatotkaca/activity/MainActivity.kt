@@ -44,27 +44,25 @@ class MainActivity : AppCompatActivity() {
         parameters["apiKey"] = "137f16d98f8445aeac86188caf4e42f6"
         parameters["q"] = "${parameterq}"
 
-        if(parameterq != "") {
-            RetrofitClient.instance.getEverything(parameters)
-                .enqueue(object : Callback<EverythingResponse> {
-                    override fun onResponse(
-                        call: Call<EverythingResponse>,
-                        response: Response<EverythingResponse>
-                    ) {
-                        val listResponse = response.body()?.articles
-                        listResponse?.let { list.addAll(it) }
-                        val adapter = EverythingAdapter(list)
-                        rvList.adapter = adapter
-                    }
+        RetrofitClient.instance.getEverything(parameters).enqueue(object : Callback<EverythingResponse> {
+            override fun onResponse(
+                call: Call<EverythingResponse>,
+                response: Response<EverythingResponse>
+            ) {
+                val listResponse = response.body()?.articles
+                listResponse?.let { list.addAll(it) }
+                val adapter = EverythingAdapter(list)
+                if(list.size == 0) {
+                    tvError.visibility = View.VISIBLE
+                    tvError.text = "Ups! Tidak ditemukan pencarian.\nMohon kembali lagi."
+                }
+                rvList.adapter = adapter
+            }
 
-                    override fun onFailure(call: Call<EverythingResponse>, t: Throwable) {
-                        tvError.visibility = View.VISIBLE
-                        tvError.text = "Ups! Sepertinya ada masalah. Mohon kembali lagi nanti."
-                    }
-                })
-        } else {
-            tvError.visibility = View.VISIBLE
-            tvError.text = "Ups! Anda lupa mengisi berita yang ingin dicari. Mohon kembali lagi."
-        }
+            override fun onFailure(call: Call<EverythingResponse>, t: Throwable) {
+                tvError.visibility = View.VISIBLE
+                tvError.text = "Ups! Sepertinya ada masalah.\nMohon kembali lagi nanti."
+            }
+        })
     }
 }

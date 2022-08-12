@@ -20,6 +20,10 @@ class SearchActivity : AppCompatActivity() {
         etSearch = findViewById(R.id.et_newsSearch)
         btnSearch.setOnClickListener{
             val searchString = etSearch.text.toString()
+            if(searchString.trim().isEmpty()) {
+                etSearch.error = "Belum diisi"
+                return@setOnClickListener
+            }
             val intentSearch = Intent(this@SearchActivity, MainActivity::class.java)
             intentSearch.putExtra(MainActivity.EXTRA_SEARCH, searchString)
             startActivity(intentSearch)

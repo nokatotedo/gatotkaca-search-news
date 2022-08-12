@@ -3,6 +3,7 @@ package com.schoters.gatotkaca.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,8 @@ class EverythingAdapter(private val list: ArrayList<Everything>): RecyclerView.A
                 .load(image)
                 .error(R.drawable.logo)
                 .into(ivImage)
+
+            itemView.startAnimation(AnimationUtils.loadAnimation(itemView.context, R.anim.list_animation))
         }
     }
 
