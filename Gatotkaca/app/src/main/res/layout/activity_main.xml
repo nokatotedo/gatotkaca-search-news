@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/schotersPalette2"
-    android:orientation="vertical"
     tools:context=".activity.MainActivity">
     <TextView
         android:id="@+id/tv_newsError"
@@ -18,8 +17,28 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:text="@string/api_error"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fv_news"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/nv_newsBottom"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/navigation_graph"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_newsList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/nv_newsBottom"
+        android:padding="10dp"
+        android:visibility="visible"/>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nv_newsBottom"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/menu_bottom"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

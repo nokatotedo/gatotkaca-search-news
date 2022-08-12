@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.adapter.EverythingAdapter
 import com.schoters.gatotkaca.api.RetrofitClient
@@ -18,6 +21,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     private lateinit var rvList: RecyclerView
     private lateinit var tvError: TextView
+    private lateinit var nvBottom: BottomNavigationView
     private var list: ArrayList<Everything> = arrayListOf()
 
     companion object {
@@ -28,8 +32,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        nvBottom = findViewById(R.id.nv_newsBottom)
+        val nvController = supportFragmentManager.findFragmentById(R.id.fv_news)?.findNavController()
+        nvController?.let { nvBottom.setupWithNavController(it) }
+
         showNewsEverything()
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun showNewsEverything() {
