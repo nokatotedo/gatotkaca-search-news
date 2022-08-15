@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 
 class EverythingAdapter(private val list: ArrayList<Everything>): RecyclerView.Adapter<EverythingAdapter.EverythingViewHolder>() {
     inner class EverythingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(everything:Everything) {
+        fun bind(everything: Everything) {
             val tvTitle: TextView = itemView.findViewById(R.id.tv_newsTitle)
             val tvDescription: TextView = itemView.findViewById(R.id.tv_newsDescription)
             val ivImage: ImageView = itemView.findViewById(R.id.iv_newsImage)
@@ -29,12 +29,12 @@ class EverythingAdapter(private val list: ArrayList<Everything>): RecyclerView.A
                 .error(R.drawable.logo)
                 .into(ivImage)
 
-            itemView.startAnimation(AnimationUtils.loadAnimation(itemView.context, R.anim.list_animation))
+            itemView.startAnimation(AnimationUtils.loadAnimation(itemView.context, R.anim.everything_animation))
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EverythingViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.news_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.everything_list, parent, false)
         return EverythingViewHolder(view)
     }
 

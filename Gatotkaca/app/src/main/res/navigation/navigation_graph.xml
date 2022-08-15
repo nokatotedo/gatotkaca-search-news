@@ -6,12 +6,12 @@
     app:startDestination="@id/everythingFragment">
     <fragment
         android:id="@+id/everythingFragment"
-        android:name="com.schoters.gatotkaca.EverythingFragment"
+        android:name="com.schoters.gatotkaca.activity.EverythingFragment"
         android:label="fragment_everything"
         tools:layout="@layout/fragment_everything" />
     <fragment
         android:id="@+id/topFragment"
-        android:name="com.schoters.gatotkaca.TopFragment"
+        android:name="com.schoters.gatotkaca.activity.TopFragment"
         android:label="fragment_top"
         tools:layout="@layout/fragment_top" />
 </navigation>

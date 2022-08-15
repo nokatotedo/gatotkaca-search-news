@@ -3,5 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EverythingFragment">
+    tools:context=".activity.EverythingFragment">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_newsEverythingList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </FrameLayout>
