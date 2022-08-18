@@ -8,10 +8,23 @@
         android:id="@+id/everythingFragment"
         android:name="com.schoters.gatotkaca.activity.EverythingFragment"
         android:label="fragment_everything"
-        tools:layout="@layout/fragment_everything" />
+        tools:layout="@layout/fragment_everything">
+        <action
+            android:id="@+id/action_everythingFragment_to_everythingDetailFragment"
+            app:destination="@id/everythingDetailFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/topFragment"
         android:name="com.schoters.gatotkaca.activity.TopFragment"
         android:label="fragment_top"
-        tools:layout="@layout/fragment_top" />
+        tools:layout="@layout/fragment_top"/>
+    <fragment
+        android:id="@+id/everythingDetailFragment"
+        android:name="com.schoters.gatotkaca.activity.EverythingDetailFragment"
+        android:label="fragment_everything_detail"
+        tools:layout="@layout/fragment_everything_detail">
+        <argument
+            android:name="detailNews"
+            app:argType="com.schoters.gatotkaca.data.EverythingDetail"/>
+    </fragment>
 </navigation>

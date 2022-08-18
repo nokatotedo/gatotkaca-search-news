@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.adapter.EverythingAdapter
 import com.schoters.gatotkaca.data.Everything
+import com.schoters.gatotkaca.data.EverythingDetail
 import com.schoters.gatotkaca.data.SharedViewModel
 
 class EverythingFragment : Fragment() {
@@ -47,8 +48,9 @@ class EverythingFragment : Fragment() {
             if(it.size == 0) {
                 tvError.visibility = View.VISIBLE
                 tvError.text = "Ups! Tidak ditemukan berita.\nMohon kembali lagi."
+            } else {
+                adapter.setList(it)
             }
-            adapter.setList(it)
         })
 
         viewModel.getErrorEverything().observe(viewLifecycleOwner, {
@@ -60,12 +62,13 @@ class EverythingFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object : EverythingAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Everything) {
-                showDetailNews(data)
+                val title = data.title
+                val description = data.description
+                val detailNews = EverythingDetail(title, description)
+
+                val action = EverythingFragmentDirections.actionEverythingFragmentToEverythingDetailFragment(detailNews)
+                findNavController().navigate(action)
             }
         })
-    }
-
-    private fun showDetailNews(everything: Everything) {
-        Toast.makeText(activity, "Kamu memilih" + everything.source.name, Toast.LENGTH_SHORT).show()
     }
 }
