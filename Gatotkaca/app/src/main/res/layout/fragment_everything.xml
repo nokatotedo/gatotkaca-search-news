@@ -4,6 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.EverythingFragment">
+    <TextView
+        android:id="@+id/tv_newsError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/api_error"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_newsEverythingList"
         android:layout_width="match_parent"

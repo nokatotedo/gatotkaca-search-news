@@ -5,20 +5,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.adapter.TopAdapter
-import com.schoters.gatotkaca.api.RetrofitClient
+import com.schoters.gatotkaca.data.SharedViewModel
 import com.schoters.gatotkaca.data.Top
-import com.schoters.gatotkaca.data.TopResponse
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class TopFragment : Fragment() {
+    private lateinit var tvError: TextView
+    private lateinit var cvList: CardView
     private lateinit var rvList: RecyclerView
-    private var list: ArrayList<Top> = arrayListOf()
+    private lateinit var adapter: TopAdapter
+    private lateinit var viewModel: SharedViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,30 +33,44 @@ class TopFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showNewsTop()
-    }
+        tvError = view.findViewById(R.id.tv_newsError)
+        cvList = view.findViewById(R.id.cv_newsTopList)
+        rvList = view.findViewById(R.id.rv_newsTopList)
+        adapter = TopAdapter()
+        viewModel = ViewModelProvider(requireActivity(), ViewModelProvider.NewInstanceFactory()).get(SharedViewModel::class.java)
 
-    private fun showNewsTop() {
-        rvList = requireView().findViewById(R.id.rv_newsTopList)
         rvList.setHasFixedSize(true)
         rvList.layoutManager = LinearLayoutManager(activity)
+        rvList.adapter = adapter
 
-        val parameterq = "us"
-        val parameters = HashMap<String, String>()
-        parameters["apiKey"] = "137f16d98f8445aeac86188caf4e42f6"
-        parameters["q"] = "${parameterq}"
+        val parameterq = requireActivity().intent.getStringExtra("extra_search").toString()
 
-        RetrofitClient.instance.getTop(parameters).enqueue(object :
-            Callback<TopResponse> {
-            override fun onResponse(call: Call<TopResponse>, response: Response<TopResponse>) {
-                val listResponse = response.body()?.articles
-                listResponse?.let { list.addAll(it) }
-                val adapter = TopAdapter(list)
-                rvList.adapter = adapter
-            }
-
-            override fun onFailure(call: Call<TopResponse>, t: Throwable) {
+        viewModel.setTop(parameterq)
+        viewModel.getTop().observe(viewLifecycleOwner, {
+            if(it.size == 0) {
+                tvError.visibility = View.VISIBLE
+                tvError.text = "Ups! Tidak ditemukan berita.\nMohon kembali lagi."
+            } else {
+                cvList.visibility = View.VISIBLE
+                adapter.setList(it)
             }
         })
+
+        viewModel.getErrorTop().observe(viewLifecycleOwner, {
+            if(it != "") {
+                tvError.visibility = View.VISIBLE
+                tvError.text = it
+            }
+        })
+
+        adapter.setOnItemClickCallback(object : TopAdapter.OnItemClickCallback {
+            override fun onItemClicked(data: Top) {
+                showDetailNews(data)
+            }
+        })
+    }
+
+    private fun showDetailNews(top: Top) {
+        Toast.makeText(activity, "Kamu memilih" + top.source.name, Toast.LENGTH_SHORT).show()
     }
 }

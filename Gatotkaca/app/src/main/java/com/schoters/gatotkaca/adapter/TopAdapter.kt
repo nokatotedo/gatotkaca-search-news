@@ -9,8 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.data.Top
 
-class TopAdapter(private val list: ArrayList<Top>): RecyclerView.Adapter<TopAdapter.TopViewHolder>(){
+class TopAdapter: RecyclerView.Adapter<TopAdapter.TopViewHolder>(){
+    private lateinit var onItemClickCallback: OnItemClickCallback
+    private val list = ArrayList<Top>()
     private val number = (1..10).toList().toTypedArray()
+
+    fun setList(top: ArrayList<Top>) {
+        list.clear()
+        list.addAll(top)
+        notifyDataSetChanged()
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     inner class TopViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvNumber: TextView = itemView.findViewById(R.id.tv_newsNumber)
         fun bind(top: Top) {
@@ -32,7 +45,17 @@ class TopAdapter(private val list: ArrayList<Top>): RecyclerView.Adapter<TopAdap
         val num = number[position].toString()
         val numstring = "#${num}"
         holder.tvNumber.text = numstring
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(list[holder.bindingAdapterPosition]) }
     }
 
-    override fun getItemCount(): Int = 10
+    override fun getItemCount(): Int {
+        if(list.size >= 10) {
+            return 10
+        }
+        return list.size
+    }
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Top)
+    }
 }

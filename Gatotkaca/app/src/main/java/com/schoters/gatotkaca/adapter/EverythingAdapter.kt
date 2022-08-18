@@ -11,7 +11,20 @@ import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.data.Everything
 import com.squareup.picasso.Picasso
 
-class EverythingAdapter(private val list: ArrayList<Everything>): RecyclerView.Adapter<EverythingAdapter.EverythingViewHolder>() {
+class EverythingAdapter: RecyclerView.Adapter<EverythingAdapter.EverythingViewHolder>() {
+    private lateinit var onItemClickCallback: OnItemClickCallback
+    private val list = ArrayList<Everything>()
+
+    fun setList(everything: ArrayList<Everything>) {
+        list.clear()
+        list.addAll(everything)
+        notifyDataSetChanged()
+    }
+
+    fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback
+    }
+
     inner class EverythingViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(everything: Everything) {
             val tvTitle: TextView = itemView.findViewById(R.id.tv_newsTitle)
@@ -40,7 +53,12 @@ class EverythingAdapter(private val list: ArrayList<Everything>): RecyclerView.A
 
     override fun onBindViewHolder(holder: EverythingViewHolder, position: Int) {
         holder.bind(list[position])
+        holder.itemView.setOnClickListener { onItemClickCallback.onItemClicked(list[holder.bindingAdapterPosition]) }
     }
 
     override fun getItemCount(): Int = list.size
+
+    interface OnItemClickCallback {
+        fun onItemClicked(data: Everything)
+    }
 }

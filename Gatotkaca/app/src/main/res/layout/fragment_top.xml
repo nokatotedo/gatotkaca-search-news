@@ -5,9 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.TopFragment">
+    <TextView
+        android:id="@+id/tv_newsError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="@string/api_error"/>
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_newsTopList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:cardCornerRadius="20dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_newsTopList"

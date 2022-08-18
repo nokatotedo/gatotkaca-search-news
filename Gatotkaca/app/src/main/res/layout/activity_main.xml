@@ -13,22 +13,11 @@
         app:layout_constraintBottom_toTopOf="@id/nv_newsBottom"
         android:padding="10dp"
         android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_newsError"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:visibility="gone"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="@string/api_error"/>
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fv_news"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:defaultNavHost="true"
             app:navGraph="@navigation/navigation_graph"/>
     </LinearLayout>
