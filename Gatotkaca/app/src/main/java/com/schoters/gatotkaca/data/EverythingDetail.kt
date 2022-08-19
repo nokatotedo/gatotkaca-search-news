@@ -5,6 +5,10 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class EverythingDetail(
+    val source: String,
     val title: String,
-    val description: String
+    val author: String,
+    val description: String,
+    val urlToImage: String,
+    val publishedAt: String
 ): Parcelable

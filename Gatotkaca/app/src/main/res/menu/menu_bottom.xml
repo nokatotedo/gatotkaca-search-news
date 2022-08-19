@@ -8,4 +8,8 @@
         android:id="@+id/topFragment"
         android:icon="@drawable/icontopnews"
         android:title="Top News"/>
+    <item
+        android:id="@+id/everythingDetailFragment"
+        android:visible="false"
+        android:title="@string/everything_details"/>
 </menu>

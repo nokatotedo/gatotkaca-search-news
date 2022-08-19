@@ -26,5 +26,8 @@
         <argument
             android:name="detailNews"
             app:argType="com.schoters.gatotkaca.data.EverythingDetail"/>
+        <action
+            android:id="@+id/action_everythingDetailFragment_to_everythingFragment"
+            app:destination="@id/everythingFragment" />
     </fragment>
 </navigation>

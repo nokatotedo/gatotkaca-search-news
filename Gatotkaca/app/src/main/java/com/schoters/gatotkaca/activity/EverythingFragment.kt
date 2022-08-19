@@ -62,9 +62,20 @@ class EverythingFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object : EverythingAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Everything) {
+                val urlToImage = data.urlToImage
                 val title = data.title
                 val description = data.description
-                val detailNews = EverythingDetail(title, description)
+                val author = data.author
+                val source = data.source.name
+                val published = data.publishedAt
+                val detailNews = EverythingDetail(
+                    source,
+                    title,
+                    author,
+                    description,
+                    urlToImage,
+                    published
+                )
 
                 val action = EverythingFragmentDirections.actionEverythingFragmentToEverythingDetailFragment(detailNews)
                 findNavController().navigate(action)

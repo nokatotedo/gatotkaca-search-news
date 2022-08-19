@@ -6,6 +6,5 @@ class Everything(
     val author: String,
     val description: String,
     val urlToImage: String,
-    val url: String,
     val publishedAt: String
 )

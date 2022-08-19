@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/close_icon.xml" value="0.178125" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/close_layout.xml" value="0.178125" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_button_layout.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_view.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_view_icon.xml" value="0.15104166666666666" />

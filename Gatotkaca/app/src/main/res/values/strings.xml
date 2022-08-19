@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">Gatotkaca</string>
     <string name="api_error">Error</string>
+    <string name="everything">All News</string>
+    <string name="everything_details">All News Details</string>
+    <string name="top">Top News</string>
     <string name="news_image">Image</string>
     <string name="news_title">Title</string>
     <string name="news_description">Description</string>
     <string name="news_search">Search</string>
     <string name="news_top">#1</string>
+    <string name="news_author">Author</string>
+    <string name="news_source">Source</string>
+    <string name="news_published">Published at</string>
 </resources>
