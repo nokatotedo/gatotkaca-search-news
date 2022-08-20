@@ -39,6 +39,7 @@ class EverythingAdapter: RecyclerView.Adapter<EverythingAdapter.EverythingViewHo
             tvDescription.text = description
             Picasso.get()
                 .load(image)
+                .resize(512,512)
                 .error(R.drawable.logo)
                 .into(ivImage)
 

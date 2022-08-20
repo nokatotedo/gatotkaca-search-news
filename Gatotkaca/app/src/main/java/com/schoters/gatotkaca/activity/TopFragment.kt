@@ -6,15 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.cardview.widget.CardView
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.adapter.TopAdapter
 import com.schoters.gatotkaca.data.SharedViewModel
 import com.schoters.gatotkaca.data.Top
+import com.schoters.gatotkaca.data.TopDetail
 
 class TopFragment : Fragment() {
     private lateinit var tvError: TextView
@@ -65,12 +66,35 @@ class TopFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object : TopAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Top) {
-                showDetailNews(data)
+                var urlToImage = "null"
+                val title = data.title
+                val description = data.description
+                var author = "Anonymous"
+                var source = "Anonymous"
+                val published = data.publishedAt
+
+                if(data.urlToImage != null) {
+                    urlToImage = data.urlToImage
+                }
+                if(data.author != null) {
+                    author = data.author
+                }
+                if(data.source.name != null) {
+                    source = data.source.name
+                }
+
+                val detailNews = TopDetail(
+                    source,
+                    title,
+                    author,
+                    description,
+                    urlToImage,
+                    published
+                )
+
+                val action = TopFragmentDirections.actionTopFragmentToTopDetailFragment(detailNews)
+                findNavController().navigate(action)
             }
         })
-    }
-
-    private fun showDetailNews(top: Top) {
-        Toast.makeText(activity, "Kamu memilih" + top.source.name, Toast.LENGTH_SHORT).show()
     }
 }

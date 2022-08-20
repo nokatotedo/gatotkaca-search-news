@@ -13,7 +13,7 @@ import com.google.android.material.button.MaterialButton
 import com.schoters.gatotkaca.R
 import com.squareup.picasso.Picasso
 
-class EverythingDetailFragment : Fragment() {
+class TopDetailFragment : Fragment() {
     private lateinit var mbClose: MaterialButton
     private lateinit var ivImage: ImageView
     private lateinit var tvTitle: TextView
@@ -21,13 +21,13 @@ class EverythingDetailFragment : Fragment() {
     private lateinit var tvAuthor: TextView
     private lateinit var tvSource: TextView
     private lateinit var tvPublishedAt: TextView
-    private val args by navArgs<EverythingDetailFragmentArgs>()
+    private val args by navArgs<TopDetailFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_everything_detail, container, false)
+        return inflater.inflate(R.layout.fragment_top_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -53,7 +53,7 @@ class EverythingDetailFragment : Fragment() {
         tvPublishedAt.text = args.detailNews.publishedAt
 
         mbClose.setOnClickListener{
-            val action = EverythingDetailFragmentDirections.actionEverythingDetailFragmentToEverythingFragment()
+            val action = TopDetailFragmentDirections.actionTopDetailFragmentToTopFragment()
             findNavController().navigate(action)
         }
     }

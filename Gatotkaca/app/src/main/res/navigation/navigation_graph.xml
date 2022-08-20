@@ -17,7 +17,11 @@
         android:id="@+id/topFragment"
         android:name="com.schoters.gatotkaca.activity.TopFragment"
         android:label="fragment_top"
-        tools:layout="@layout/fragment_top"/>
+        tools:layout="@layout/fragment_top">
+        <action
+            android:id="@+id/action_topFragment_to_topDetailFragment"
+            app:destination="@id/topDetailFragment"/>
+    </fragment>
     <fragment
         android:id="@+id/everythingDetailFragment"
         android:name="com.schoters.gatotkaca.activity.EverythingDetailFragment"
@@ -28,6 +32,18 @@
             app:argType="com.schoters.gatotkaca.data.EverythingDetail"/>
         <action
             android:id="@+id/action_everythingDetailFragment_to_everythingFragment"
-            app:destination="@id/everythingFragment" />
+            app:destination="@id/everythingFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/topDetailFragment"
+        android:name="com.schoters.gatotkaca.activity.TopDetailFragment"
+        android:label="fragment_top_detail"
+        tools:layout="@layout/fragment_top_detail">
+        <argument
+            android:name="detailNews"
+            app:argType="com.schoters.gatotkaca.data.TopDetail"/>
+        <action
+            android:id="@+id/action_topDetailFragment_to_topFragment"
+            app:destination="@id/topFragment"/>
     </fragment>
 </navigation>

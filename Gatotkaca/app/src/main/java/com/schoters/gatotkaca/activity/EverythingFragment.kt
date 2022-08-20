@@ -62,12 +62,23 @@ class EverythingFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object : EverythingAdapter.OnItemClickCallback {
             override fun onItemClicked(data: Everything) {
-                val urlToImage = data.urlToImage
+                var urlToImage = "null"
                 val title = data.title
                 val description = data.description
-                val author = data.author
-                val source = data.source.name
+                var author = "Anonymous"
+                var source = "Anonymous"
                 val published = data.publishedAt
+
+                if(data.urlToImage != null) {
+                    urlToImage = data.urlToImage
+                }
+                if(data.author != null) {
+                    author = data.author
+                }
+                if(data.source.name != null) {
+                    source = data.source.name
+                }
+
                 val detailNews = EverythingDetail(
                     source,
                     title,
