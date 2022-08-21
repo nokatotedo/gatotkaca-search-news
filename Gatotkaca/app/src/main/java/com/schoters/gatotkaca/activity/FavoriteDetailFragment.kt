@@ -20,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class EverythingDetailFragment : Fragment() {
+class FavoriteDetailFragment : Fragment() {
     private lateinit var tbFavorite: ToggleButton
     private lateinit var mbClose: MaterialButton
     private lateinit var ivImage: ImageView
@@ -30,13 +30,13 @@ class EverythingDetailFragment : Fragment() {
     private lateinit var tvSource: TextView
     private lateinit var tvPublishedAt: TextView
     private lateinit var viewModel: DatabaseViewModel
-    private val args by navArgs<EverythingDetailFragmentArgs>()
+    private val args by navArgs<FavoriteDetailFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_everything_detail, container, false)
+        return inflater.inflate(R.layout.fragment_favorite_detail, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -87,7 +87,7 @@ class EverythingDetailFragment : Fragment() {
         tvPublishedAt.text = publishedAt
 
         mbClose.setOnClickListener {
-            val action = EverythingDetailFragmentDirections.actionEverythingDetailFragmentToEverythingFragment()
+            val action = FavoriteDetailFragmentDirections.actionFavoriteDetailFragmentToFavoriteFragment()
             findNavController().navigate(action)
         }
 

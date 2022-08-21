@@ -7,6 +7,7 @@
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/close_icon.xml" value="0.178125" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/close_layout.xml" value="0.178125" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/favorite_icon.xml" value="0.15104166666666666" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/favorite_menu_icon.xml" value="0.1609375" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/favorite_toggle.xml" value="0.16354166666666667" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1671875" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/non_favorite_icon.xml" value="0.15104166666666666" />
@@ -14,18 +15,22 @@
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_view.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_view_icon.xml" value="0.15104166666666666" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/drawable/search_view_layout.xml" value="0.1671875" />
-        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/activity_favorite.xml" value="0.1" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/activity_favorite.xml" value="0.264" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/activity_search.xml" value="0.2" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/everything_list.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/favorite_list.xml" value="0.14479166666666668" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_blank.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_everything.xml" value="0.176" />
-        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_everything_detail.xml" value="0.518783542039356" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_everything_detail.xml" value="0.281947261663286" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_favorite.xml" value="0.2" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_favorite_detail.xml" value="0.2" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_top.xml" value="0.152" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/fragment_top_detail.xml" value="0.176" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/news_list.xml" value="0.2" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/layout/top_list.xml" value="0.4" />
         <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/menu/menu_bottom.xml" value="0.264" />
+        <entry key="..\:/Users/dwiky/Documents/Application/Kotlin/Gatotkaca/app/src/main/res/menu/menu_top.xml" value="0.264" />
       </map>
     </option>
   </component>
