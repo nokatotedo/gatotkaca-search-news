@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.data.Top
 
-class TopAdapter: RecyclerView.Adapter<TopAdapter.TopViewHolder>(){
+class TopAdapter : RecyclerView.Adapter<TopAdapter.TopViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
     private val list = ArrayList<Top>()
     private val number = (1..10).toList().toTypedArray()

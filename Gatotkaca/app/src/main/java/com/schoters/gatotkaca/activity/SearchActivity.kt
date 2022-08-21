@@ -8,8 +8,8 @@ import android.widget.EditText
 import com.schoters.gatotkaca.R
 
 class SearchActivity : AppCompatActivity() {
-    private lateinit var btnSearch : Button
-    private lateinit var etSearch : EditText
+    private lateinit var btnSearch: Button
+    private lateinit var etSearch: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,7 +17,7 @@ class SearchActivity : AppCompatActivity() {
 
         btnSearch = findViewById(R.id.btn_newsSearch)
         etSearch = findViewById(R.id.et_newsSearch)
-        btnSearch.setOnClickListener{
+        btnSearch.setOnClickListener {
             val searchString = etSearch.text.toString()
             if(searchString.trim().isEmpty()) {
                 etSearch.error = "Belum diisi"

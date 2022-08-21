@@ -36,6 +36,20 @@
                     android:adjustViewBounds="true"
                     android:contentDescription="@string/news_image"
                     android:src="@drawable/header"/>
+                <ToggleButton
+                    android:id="@+id/tb_favorite"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/news_favorite"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:textOn=""
+                    android:textOff=""
+                    android:background="@drawable/favorite_toggle"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

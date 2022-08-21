@@ -12,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gatotkaca">
         <activity
-            android:parentActivityName=".activity.SearchActivity"
-            android:name=".activity.MainActivity"
+            android:name=".activity.FavoriteActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.MainActivity"
+            android:exported="false"
+            android:parentActivityName=".activity.SearchActivity" />
+        <activity
             android:name=".activity.SearchActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

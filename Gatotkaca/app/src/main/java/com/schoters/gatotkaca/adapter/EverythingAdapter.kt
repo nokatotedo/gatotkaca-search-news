@@ -11,7 +11,7 @@ import com.schoters.gatotkaca.R
 import com.schoters.gatotkaca.data.Everything
 import com.squareup.picasso.Picasso
 
-class EverythingAdapter: RecyclerView.Adapter<EverythingAdapter.EverythingViewHolder>() {
+class EverythingAdapter : RecyclerView.Adapter<EverythingAdapter.EverythingViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
     private val list = ArrayList<Everything>()
 

@@ -8,7 +8,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SharedViewModel: ViewModel() {
+class SharedViewModel : ViewModel() {
     val listEverything = MutableLiveData<ArrayList<Everything>>()
     val listTop = MutableLiveData<ArrayList<Top>>()
     val errorEverythingText = MutableLiveData<String>()
