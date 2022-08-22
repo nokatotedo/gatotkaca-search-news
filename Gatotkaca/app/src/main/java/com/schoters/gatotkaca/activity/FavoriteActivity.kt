@@ -12,7 +12,7 @@ class FavoriteActivity : AppCompatActivity() {
         setActionBar()
     }
 
-    fun setActionBar() {
+    private fun setActionBar() {
         val title = "Favorite News"
         supportActionBar!!.title = title
     }

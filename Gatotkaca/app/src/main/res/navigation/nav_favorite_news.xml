@@ -11,18 +11,22 @@
         tools:layout="@layout/fragment_favorite">
         <action
             android:id="@+id/action_favoriteFragment_to_favoriteDetailFragment"
-            app:destination="@id/favoriteDetailFragment" />
+            app:destination="@id/favoriteDetailFragment"
+            app:enterAnim="@anim/enter_to_detail"
+            app:exitAnim="@anim/exit_to_detail"/>
     </fragment>
     <fragment
         android:id="@+id/favoriteDetailFragment"
         android:name="com.schoters.gatotkaca.activity.FavoriteDetailFragment"
         android:label="fragment_favorite_detail"
-        tools:layout="@layout/fragment_favorite_detail" >
+        tools:layout="@layout/fragment_favorite_detail">
         <action
             android:id="@+id/action_favoriteDetailFragment_to_favoriteFragment"
-            app:destination="@id/favoriteFragment" />
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/enter_to_news"
+            app:exitAnim="@anim/exit_to_news"/>
         <argument
             android:name="detailNews"
-            app:argType="com.schoters.gatotkaca.database.FavoriteDetail" />
+            app:argType="com.schoters.gatotkaca.database.FavoriteDetail"/>
     </fragment>
 </navigation>
